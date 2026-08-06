@@ -1,0 +1,134 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<div class="mx-auto" style="max-width:900px;">
+
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+
+        <div>
+            <h1 class="fw-bold mb-1">Write a new article</h1>
+            <p class="muted mb-0">Share your AI & ML knowledge with the world</p>
+        </div>
+
+        <a href="{% url 'dashboard' %}"
+           class="btn btn-outline-light rounded-3 px-4 fw-semibold">
+
+            <i class="bi bi-arrow-left me-2"></i>
+            Back
+
+        </a>
+
+    </div>
+
+    <div class="card-dark p-4 p-md-5">
+
+        <form method="POST" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            <div class="mb-4">
+
+                <label class="form-label fw-semibold mb-2">
+                    Article Title
+                </label>
+
+                {{ form.title }}
+
+            </div>
+
+            <div class="row g-4 mb-4">
+
+                <div class="col-md-6">
+
+                    <label class="form-label fw-semibold mb-2">
+                        Category
+                    </label>
+
+                    {{ form.category }}
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <label class="form-label fw-semibold mb-2">
+                        Featured Image
+                    </label>
+
+                    {{ form.image }}
+
+                </div>
+
+            </div>
+
+            <div class="mb-4">
+
+                <label class="form-label fw-semibold mb-2">
+                    Excerpt
+                </label>
+
+                {{ form.excerpt }}
+
+                <div class="form-text text-secondary mt-2">
+                    A short summary shown on the homepage.
+                </div>
+
+            </div>
+
+            <div class="mb-4">
+
+                <label class="form-label fw-semibold mb-2">
+                    Content
+                </label>
+
+                {{ form.content }}
+
+                <div class="form-text text-secondary mt-2">
+                    Write in Markdown-style or plain text. Keep paragraphs short for better readability.
+                </div>
+
+            </div>
+
+            <div class="d-flex flex-wrap gap-3 pt-2">
+
+                <button class="btn btn-light px-4 py-3 rounded-3 fw-semibold">
+
+                    <i class="bi bi-send me-2"></i>
+                    Publish Article
+
+                </button>
+
+                <a href="{% url 'dashboard' %}"
+                   class="btn btn-outline-light px-4 py-3 rounded-3 fw-semibold">
+
+                    Cancel
+
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="card-dark p-4 mt-4">
+
+        <div class="d-flex align-items-center gap-2 mb-3">
+
+            <i class="bi bi-lightbulb text-warning"></i>
+            <h5 class="fw-bold mb-0">Writing Tips</h5>
+
+        </div>
+
+        <ul class="muted mb-0">
+            <li>Use a clear, benefit-driven title.</li>
+            <li>Keep the excerpt under 160 characters for better sharing.</li>
+            <li>Add headings every 3–4 paragraphs.</li>
+            <li>Include one relevant image for higher engagement.</li>
+        </ul>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center align-items-center" style="min-height:70vh;">
+
+    <div class="card-dark p-5 text-center" style="max-width:520px;width:100%;">
+
+        <div class="bg-danger bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-4"
+             style="width:84px;height:84px;">
+
+            <i class="bi bi-trash text-danger" style="font-size:2rem;"></i>
+
+        </div>
+
+        <h2 class="fw-bold mb-3">Delete article?</h2>
+
+        <p class="muted mb-4">
+            You are about to permanently delete this article.
+            This action cannot be undone.
+        </p>
+
+        <div class="card-dark p-4 mb-4 text-start border border-secondary-subtle">
+
+            <div class="muted small mb-2">ARTICLE</div>
+
+            <h5 class="fw-bold mb-2">
+                {{ article.title }}
+            </h5>
+
+            <div class="muted small">
+                {{ article.created_at|date:"F d, Y" }} · {{ article.reading_time }} min read
+            </div>
+
+        </div>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                <a href="{% url 'dashboard' %}"
+                   class="btn btn-outline-light px-4 py-2 rounded-3 fw-semibold">
+
+                    Cancel
+
+                </a>
+
+                <button class="btn btn-danger px-4 py-2 rounded-3 fw-semibold">
+
+                    <i class="bi bi-trash me-2"></i>
+                    Delete Permanently
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
