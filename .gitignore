@@ -133,12 +133,24 @@ celerybeat.pid
 
 # Environments
 .env
+.env.*
+!.env.example
 .venv
 env/
 venv/
 ENV/
 env.bak/
 venv.bak/
+
+# Node (frontend)
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# IDE
+.vscode/
+.idea/
 
 # Spyder project settings
 .spyderproject
@@ -172,3 +184,20 @@ cython_debug/
 #.idea/
 
 # End of https://www.toptal.com/developers/gitignore/api/django
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+# Python virtual environments and caches
+**/env/
+**/.venv/
+**/__pycache__/
+**/.pytest_cache/
+
+# Local uploaded media
+backend/media/
